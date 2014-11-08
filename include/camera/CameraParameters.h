@@ -60,6 +60,11 @@ public:
     void getPreviewSize(int *width, int *height) const;
     void getSupportedPreviewSizes(Vector<Size> &sizes) const;
 
+#ifdef HTC_CAMERA_HARDWARE
+    void getBrightnessLumaTargetSet(int *magic, int *sauce) const;
+    void getRawSize(int *magic, int *sauce) const;
+#endif
+
     // Set the dimensions in pixels to the given width and height
     // for video frames. The given width and height must be one
     // of the supported dimensions returned from
@@ -526,6 +531,9 @@ public:
     // has no effect on still image capture.
     static const char KEY_VIDEO_STABILIZATION[];
 
+    static const char KEY_ZSL[];
+    static const char KEY_CAMERA_MODE[];
+
     // Returns true if video stabilization is supported. That is, applications
     // can set KEY_VIDEO_STABILIZATION to true and have a stabilized preview
     // stream and record stabilized videos.
@@ -541,6 +549,67 @@ public:
 
     // Value for KEY_FOCUS_DISTANCES.
     static const char FOCUS_DISTANCE_INFINITY[];
+
+#ifdef HTC_CAMERA_HARDWARE
+    static const char KEY_TIME_CONS_POST_PROCESSING[];
+    static const char KEY_OIS_MODE[];
+    static const char KEY_APP_OIS_SETTING[];
+    static const char KEY_OIS_SUPPORT[];
+    static const char KEY_CONTIBURST_TYPE[];
+    static const char KEY_CAPTURE_MODE[];
+    static const char CAPTURE_MODE_NORMAL[];
+    static const char CAPTURE_MODE_CONTI_ZOE[];
+    static const char CAPTURE_MODE_CONTI_BURST[];
+    static const char CAPTURE_MODE_CONTI_BURST_ONE_SHOT[];
+    static const char CAPTURE_MODE_HDR[];
+    static const char CAPTURE_MODE_PANORAMA[];
+    static const char CAPTURE_MODE_ZOE[];
+    static const char CAPTURE_MODE_EIS[];
+    static const char KEY_CONTI_BURST_STATE[];
+    static const char KEY_SUPPORTED_CAPTURE_MODES[];
+    static const char KEY_MIN_CONTRAST[];
+    static const char KEY_DEF_CONTRAST[];
+    static const char KEY_MIN_SHARPNESS[];
+    static const char KEY_DEF_SHARPNESS[];
+    static const char KEY_MIN_SATURATION[];
+    static const char KEY_DEF_SATURATION[];
+    static const char KEY_SINGLE_ISP_OUTPUT_ENABLED[];
+    static const char POST_PROCESSING_ENABLE[];
+    static const char POST_PROCESSING_BYPASS[];
+    static const char POST_PROCESSING_DELAY[];
+    static const char SCENE_MODE_OFF[];
+    static const char SCENE_MODE_TEXT[];
+    static const char BURST_MODE_LIMIT20[];
+    static const char BURST_MODE_UNLIMITED[];
+    static const char OIS_MODE_OFF[];
+    static const char OIS_MODE_ON[];
+    static const char CONTI_BURST_CAPTURING[];
+    static const char CONTI_BURST_CAPTURE_DONE[];
+    static const char APP_OIS_SETTING_FALSE[];
+    static const char APP_OIS_SETTING_TRUE[];
+    static const char KEY_GPU_EFFECT[];
+    static const char KEY_GPU_EFFECT_PARAM_0[];
+    static const char KEY_GPU_EFFECT_PARAM_1[];
+    static const char KEY_GPU_EFFECT_PARAM_2[];
+    static const char KEY_GPU_EFFECT_PARAM_3[];
+    static const char KEY_FORCE_USE_AUDIO_ENABLED[];
+#endif
+
+    // DENOISE
+    static const char KEY_DENOISE[];
+    static const char KEY_SUPPORTED_DENOISE[];
+
+    //Selectable zone AF.
+    static const char KEY_SELECTABLE_ZONE_AF[];
+    static const char KEY_SUPPORTED_SELECTABLE_ZONE_AF[];
+
+    //Face Detection
+    static const char KEY_FACE_DETECTION[];
+    static const char KEY_SUPPORTED_FACE_DETECTION[];
+
+    //Redeye Reduction
+    static const char KEY_REDEYE_REDUCTION[];
+    static const char KEY_SUPPORTED_REDEYE_REDUCTION[];
 
     // Values for white balance settings.
     static const char WHITE_BALANCE_AUTO[];
